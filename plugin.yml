@@ -1,6 +1,6 @@
 name: FindPlayers
 author: Theslowaja
-main: Thelowaja\findp\Loader
+main: Theslowaja\findp\Loader
 api: 4.0.0
 version: 1.0.0
 
