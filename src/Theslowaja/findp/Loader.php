@@ -14,7 +14,7 @@ use pocketmine\block\Block;
 use pocketmine\event\Listener;
 use pocketmine\Server;
 
-class Main extends PluginBase implements Listener {
+class Loader extends PluginBase implements Listener {
     
     public function onEnable() : void {
          @mkdir($this->getDataFolder());
