@@ -1,6 +1,6 @@
 # PlayerFinder
 
-<img src="https://github.com/Theslowaja/EnchantShop/blob/main/icon.png" alt="Stats" width="100%">
+<img src="https://github.com/Theslowaja/PlayerrFinder/blob/main/icon.png" alt="Stats" width="100%">
 
 FindPlayer in your server 
 
