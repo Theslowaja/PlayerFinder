@@ -1,0 +1,14 @@
+name: FindPlayers
+author: Theslowaja
+main: Thelowaja\findp\Loader
+api: 4.0.0
+version: 1.0.0
+
+commands:
+  findp:
+    description: locateplayer
+    permission: findp.command
+    
+permissions:
+  findp.command:
+    default: op
