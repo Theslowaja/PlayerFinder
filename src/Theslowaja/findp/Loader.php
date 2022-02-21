@@ -17,8 +17,6 @@ use pocketmine\Server;
 class Loader extends PluginBase implements Listener {
     
     public function onEnable() : void {
-         @mkdir($this->getDataFolder());
-        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
     
@@ -30,23 +28,23 @@ class Loader extends PluginBase implements Listener {
                         if (isset($args[1])) {
                             if ($args[0] == "tp") {
                                 $player = $args[1];
-                                $world = $this->getServer()->getPlayer($player)->getWorld()->getFolderName();
-                                $x = $this->getServer()->getPlayer($player)->getPosition()->getX();
-                                $y = $this->getServer()->getPlayer($player)->getPosition()->getY();
-                                $z = $this->getServer()->getPlayer($player)->getPosition()->getZ();
-                                $this->getServer()->getPlayer($player)->teleport(new Position($x, $y, $z, $this->getServer()->getLevelByName($world)));
+                                $world = $this->getServer()->getPlayerByPrefix($player)->getWorld()->getFolderName();
+                                $x = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getX();
+                                $y = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getY();
+                                $z = $this->getServer()-getPlayerByPrefix($player)->getPosition()->getZ();
+                                $this->getServer()->getPlayerByPrefix($player)->teleport(new Position($x, $y, $z, $this->getServer()->getLevelByName($world)));
                                 $sender->sendMessage(TextFormat::GREEN . "Teleported to: $world, $x, $y, $z");
                                 return true;
                             } elseif ($args[0] == "find") {
                                 $player = $args[1];
-                                $world = $this->getServer()->getPlayer($player)->getWorld()->getFolderName();
-                                $x = $this->getServer()->getPlayer($player)->getPosition()->getX();
-                                $y = $this->getServer()->getPlayer($player)->getPosition()->getY();
-                                $z = $this->getServer()->getPlayer($player)->getPosition()->getZ();
+                                $world = $this->getServer()->getPlayerByPrefix($player)->getWorld()->getFolderName();
+                                $x = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getX();
+                                $y = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getY();
+                                $z = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getZ();
                                 $sender->sendMessage(TextFormat::GREEN . "Location found: $world, $x, $y, $z");
                             } elseif ($args[0] == "world") {
                                 $player = $args[1];
-                                $world = $this->getServer()->getPlayer($player)->getWorld()->getFolderName();
+                                $world = $this->getServer()->getPlayerByPrefix($player)->getWorld()->getFolderName();
                                 $sender->sendMessage(TextFormat::GREEN . "World Located: $world");
                                 } else {
                                 $sender->sendMessage(TextFormat::RED . "Commands: \n/findp tp {name}\n/findp find {player}\n/findp world {player}");
