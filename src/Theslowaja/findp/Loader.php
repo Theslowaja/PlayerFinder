@@ -31,8 +31,8 @@ class Loader extends PluginBase implements Listener {
                                 $world = $this->getServer()->getPlayerByPrefix($player)->getWorld()->getFolderName();
                                 $x = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getX();
                                 $y = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getY();
-                                $z = $this->getServer()-getPlayerByPrefix($player)->getPosition()->getZ();
-                                $this->getServer()->getPlayerByPrefix($player)->teleport(new Position($x, $y, $z, $this->getServer()->getLevelByName($world)));
+                                $z = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getZ();
+                                $this->getServer()->getPlayerByPrefix($player)->teleport(new Position($x, $y, $z, $this->getServer()->getWorldByName($world)));
                                 $sender->sendMessage(TextFormat::GREEN . "Teleported to: $world, $x, $y, $z");
                                 return true;
                             } elseif ($args[0] == "find") {
