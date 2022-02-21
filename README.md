@@ -1,6 +1,6 @@
 # PlayerFinder
 
-<img src="https://github.com/Theslowaja/PlayerFinder/blob/main/icon.png" alt="Stats" width="100%">
+<img src="https://github.com/Theslowaja/PlayerFinder/blob/main/icon.png" alt="Stats" width="50%">
 
 FindPlayer in your server 
 
