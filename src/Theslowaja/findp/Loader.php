@@ -26,7 +26,7 @@ class Loader extends PluginBase implements Listener {
                 if ($sender instanceof Player) {
                     if (isset($args[0])) {
                         if (isset($args[1])) {
-                             $p =  this->getServer()->getPlayerByPrefix($player);
+                            $p =  $this->getServer()->getPlayerByPrefix($args[1]);
                             if ($p instanceof Player ) {
                                 if ($args[0] == "tp") {
                                     $player = $args[1];
