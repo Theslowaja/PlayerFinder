@@ -26,44 +26,33 @@ class Loader extends PluginBase implements Listener {
                 if ($sender instanceof Player) {
                     if (isset($args[0])) {
                         if (isset($args[1])) {
-                            if ($args[0] == "tp") {
-                                $player = $args[1];
-                                $p =  this->getServer()->getPlayerByPrefix($player);
-                                if ($p instanceof Player ) {
+                             $p =  this->getServer()->getPlayerByPrefix($player);
+                            if ($p instanceof Player ) {
+                                if ($args[0] == "tp") {
+                                    $player = $args[1];
                                     $world = $this->getServer()->getPlayerByPrefix($player)->getWorld()->getFolderName();
                                     $x = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getX();
                                     $y = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getY();
                                     $z = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getZ();
                                     $this->getServer()->getPlayerByPrefix($player)->teleport(new Position($x, $y, $z, $this->getServer()->getWorldManager()->getWorldByName($world)));
                                     $sender->sendMessage(TextFormat::GREEN . "Teleported to: $world, $x, $y, $z");
-                               } else {
-                                    $sender->sendMessage(TextFormat::RED . "Player Not Found");
-                               }
-                                return true;
-                            } elseif ($args[0] == "find") {
-                                $player = $args[1];
-                                $player = $args[1];
-                                $p =  this->getServer()->getPlayerByPrefix($player);
-                                if ($p instanceof Player ) {
+                                    return true;
+                                } elseif ($args[0] == "find") {
+                                    $player = $args[1];
                                     $world = $this->getServer()->getPlayerByPrefix($player)->getWorld()->getFolderName();
                                     $x = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getX();
                                     $y = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getY();
                                     $z = $this->getServer()->getPlayerByPrefix($player)->getPosition()->getZ();
                                     $sender->sendMessage(TextFormat::GREEN . "Location found: $world, $x, $y, $z");
-                               } else {
-                                    $sender->sendMessage(TextFormat::RED . "Player Not Found");
-                               }
-                            } elseif ($args[0] == "world") {
-                                $player = $args[1];
-                                $p =  this->getServer()->getPlayerByPrefix($player);
-                                if ($p instanceof Player ) {
-                                $world = $this->getServer()->getPlayerByPrefix($player)->getWorld()->getFolderName();
-                                $sender->sendMessage(TextFormat::GREEN . "World Located: $world");
-                                } else {
-                                    $sender->sendMessage(TextFormat::RED . "Player Not Found");
-                                }
+                                } elseif ($args[0] == "world") {
+                                    $player = $args[1];
+                                    $world = $this->getServer()->getPlayerByPrefix($player)->getWorld()->getFolderName();
+                                    $sender->sendMessage(TextFormat::GREEN . "World Located: $world");
                                 } else {
                                 $sender->sendMessage(TextFormat::RED . "Commands: \n/findp tp {name}\n/findp find {player}\n/findp world {player}");
+                                }
+                            } else {
+                                $sender->sendMessage(TextFormat::RED . "Player Not Found");
                             }
                         } else {
                             $sender->sendMessage(TextFormat::RED . "Set a player name!");
