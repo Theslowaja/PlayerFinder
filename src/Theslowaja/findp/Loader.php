@@ -24,11 +24,11 @@ class Loader extends PluginBase
                     if (isset($args[0])) {
                         if (isset($args[1])) {
                             $p =  $this->getServer()->getPlayerByPrefix($args[1]);
-                            $world = $this->getServer()->getPlayerByPrefix($args[1])->getWorld()->getFolderName();
-                            $x = $this->getServer()->getPlayerByPrefix($args[1])->getPosition()->getX();
-                            $y = $this->getServer()->getPlayerByPrefix($args[1])->getPosition()->getY();
-                            $z = $this->getServer()->getPlayerByPrefix($args[1])->getPosition()->getZ();
                             if ($p instanceof Player) {
+                                $world = $p->getWorld()->getFolderName();
+                                $x = $p->getPosition()->getX();
+                                $y = $p->getPosition()->getY();
+                                $z = $p->getPosition()->getZ();
                                 switch ($args[0]) {
                                     case "tp":
                                         $p->teleport(new Position($x, $y, $z, $this->getServer()->getWorldManager()->getWorldByName($world)));
