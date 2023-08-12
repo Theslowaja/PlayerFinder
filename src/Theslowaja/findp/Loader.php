@@ -45,7 +45,7 @@ class Loader extends PluginBase
         return true;
     }
 
-    private function teleportToPlayer(CommandSender $sender, array $args): void
+    private function teleportToPlayer(Player $sender, array $args): void
     {
         if (isset($args[1])) {
             $player = $this->getServer()->getPlayerByPrefix($args[1]);
@@ -62,7 +62,7 @@ class Loader extends PluginBase
         }
     }
 
-    private function findPlayerLocation(CommandSender $sender, array $args): void
+    private function findPlayerLocation(Player $sender, array $args): void
     {
         if (isset($args[1])) {
             $player = $this->getServer()->getPlayerByPrefix($args[1]);
@@ -78,7 +78,7 @@ class Loader extends PluginBase
         }
     }
 
-    private function findPlayerWorld(CommandSender $sender, array $args): void
+    private function findPlayerWorld(Player $sender, array $args): void
     {
         if (isset($args[1])) {
             $player = $this->getServer()->getPlayerByPrefix($args[1]);
